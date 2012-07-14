@@ -7,7 +7,7 @@
 	<script src="js/jquery.jeditable.js" type="text/javascript"></script>
 	<script src="js/jquery.tabs.js" type="text/javascript"></script>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"><link href="style.css" rel="stylesheet" type="text/css">
-	<link href="js/themes/jquery-ui.css" rel="stylesheet" type="text/css"/>
+	<link href="js/themes/style.css" rel="stylesheet" type="text/css"/>
 	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script> !-->
 	<script src="js/jquery-ui.min.js"></script>
 <script type="text/javascript">
@@ -24,6 +24,7 @@ $(document).ready(function() {
 	
 	$( "#datepicker" ).datepicker( "option", "buttonImage", "datepicker.jpg" );
 	
+	/*
 	$('.edit_text').editable("ProcessRecords.php", {
 		style: "background:url(text_bx.gif) no-repeat bottom;display:inline; width: 200px; height: 20px",
 		width: "none",
@@ -31,8 +32,10 @@ $(document).ready(function() {
 		cssclass: "inputbtn",
 		tooltip : "Click to edit..."
 	});
+	*/
 });
 </script>
+	<script src="js/script.js" type="text/javascript"></script>
 </head>
 <body>
 <?php
@@ -73,7 +76,7 @@ $(document).ready(function() {
 							<td>$getRow[0]</td>
 							<td class='edit_text'>$getRow[1]</td>
 							<td class='edit_text'>$getRow[2]</td>
-							<div id='datepicker'><td class='edit_text'>$getRow[3]</td></div>
+							<div id='datepicker'><td class='edit_date'>$getRow[3]</td></div>
 							<td class='edit_text'>$getRow[4]</td>
 							<td class='edit_text'>$getRow[5]</td>
 							<td class='edit_text'>$getRow[6]</td>
@@ -117,7 +120,7 @@ $(document).ready(function() {
 							<td class='edit_text'>$getRow[5]</td>
 							<td class='edit_text'>$getRow[6]</td>
 							<td class='edit_text'>$getRow[7]</td>
-							<td><a href='mailto:$getRow[8]'>$getRow[8]</a></td>
+							<td class='edit_text'><a href='mailto:$getRow[8]'>$getRow[8]</a></td>
 							</tr>";
 					}
 					echo "</tbody>";
