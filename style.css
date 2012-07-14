@@ -1,0 +1,111 @@
+#tabbed_box {  
+    margin: 0px auto 0px auto;  
+    width:100%;  
+}
+
+.tabbed_box h4 {  
+    font-family:Arial, Helvetica, sans-serif;  
+    font-size:23px;  
+    color:#000000;  
+    letter-spacing:-1px;  
+    margin-bottom:10px;  
+}
+
+.tabbed_area {  
+    border:1px solid #494e52;  
+    background-color:#636d76;  
+    padding:8px;  
+}
+
+ul.tabs {  
+    margin:0px; padding:0px;  
+    margin-top:5px;  
+    margin-bottom:6px;
+}  
+ul.tabs li {
+	list-style:none;  
+    display:inline;  
+}
+
+ul.tabs li a {  
+    background-color:#464c54;  
+    color:#ffebb5;  
+    padding:8px 14px 8px 14px;  
+    text-decoration:none;  
+    font-size:9px;  
+    font-family:Verdana, Arial, Helvetica, sans-serif;  
+    font-weight:bold;  
+    text-transform:uppercase;  
+    border:1px solid #464c54;  
+}  
+ul.tabs li a:hover {  
+    background-color:#2f343a;  
+    border-color:#2f343a;  
+}  
+ul.tabs li a.active {  
+    background-color:#ffffff;  
+    color:#282e32;  
+    border:1px solid #464c54;  
+    border-bottom: 1px solid #ffffff;  
+}
+
+.content {  
+    background-color:#ffffff;  
+    padding:10px;  
+    border:1px solid #464c54;  
+}  
+#content_2, #content_3 { display:none; }
+
+			/* tables */
+table.tablesorter {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 5px;
+	background-color: #FFF;
+	vertical-align: top;
+	width: 200px;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
+}
+table.tablesorter tbody tr.mouseHover td{
+	background-color:#efcfc8;	
+}
+
+input{
+	background:url(text_bx.gif) no-repeat bottom;
+	width: 140px;
+	height: 20px;
+	border: none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	padding:  2px 2px 0px 2px;
+}
