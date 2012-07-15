@@ -41,8 +41,13 @@ $(document).ready(function() {
 			$(this).parent().children('#right').hide();
 		}
 	});
+
 	$('.editing').live('blur',function(){
 		//console.log();
+		if($(this).parent().attr('id')=='date'){
+			//$('.ui-datepicker-trigger').trigger('click');
+			return;
+		}
 		if($(this).val() == prev_val){
 			
 			$('.editing').parent().html(prev_val);
@@ -66,7 +71,36 @@ $(document).ready(function() {
 				}
 				$('.notifications').html("<p class='noti'>"+result+"</p>");
 				editing=0;
-				setTimeout("$('.noti').hide('slow')",2000);
+				setTimeout("$('.content .noti').hide('slow')",2000);
+			}
+		});
+		
+	});
+	$('#date .editing').live('change',function(){
+		if($(this).val() == prev_val){
+			
+			$('.editing').parent().html(prev_val);
+			$('.notifications').html("<p class='noti'>Not changed</p>");
+			editing=0;
+			setTimeout("$('.noti').hide('slow')",2000);
+
+			return;
+		}
+		new_val=$(this).val();
+		$.ajax({
+			url: 'ProcessRecords.php',
+			type: 'GET',
+			data: 'id='+$(this).parent().parent().children('td:first-child').text()+'&data='+$(this).val()+'&field='+$(this).parent().index()+'&table='+$('.tabs .active').parent().index(),
+			success: function(result){
+				if(result.indexOf("error")<0){
+					$('.editing').parent().html(new_val);
+				}
+				else{
+					$('.editing').parent().html(prev_val);
+				}
+				$('.notifications').html("<p class='noti'>"+result+"</p>");
+				editing=0;
+				setTimeout("$('.content .noti').hide('slow')",2000);
 			}
 		});
 		
@@ -80,7 +114,13 @@ $(document).ready(function() {
 		$(this).html('<input type="text" value="'+$(this).text()+'" style="background:url(text_bx.gif) no-repeat bottom;display:inline;padding: 0; margin: 0;" class="editing" >');
 		$(this).children('input').focus();
 		if ($(this).attr('id')=='date'){
-			$(this).children('input').datepicker( "refresh");//"option", "dateFormat","yy-mm-dd");
+			$(this).children('input').datepicker({
+			showOn: "button",
+			buttonImage: "datepicker.jpg",
+			buttonImageOnly: true,
+			dateFormat: "yy-mm-dd"
+			});
+			//"refresh");//"option", "dateFormat","yy-mm-dd");
 		}
 	});
 });
