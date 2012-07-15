@@ -51,7 +51,7 @@ ul.tabs li a.active {
 
 .content {  
     background-color:#ffffff;  
-    padding:10px;  
+    padding:10px 10px 0 10px;  
     border:1px solid #464c54;  
 }  
 #content_2, #content_3 { display:none; }
@@ -60,10 +60,37 @@ ul.tabs li a.active {
 table.tablesorter {
 	font-family:arial;
 	background-color: #CDCDCD;
-	margin:10px 0pt 15px;
+	margin:10px 0pt 5px;
 	font-size: 8pt;
 	width: 100%;
 	text-align: left;
+}
+.bottom_panel{
+	background: white;
+	width: 1310px;
+	height: 20px;
+	padding: 0 0 5px;
+}
+.noti{
+	margin: 0;
+	padding: 0;
+	font-size: 9px;
+	font-family: arial;
+}
+.notifications{
+	width: 500px;
+	float: left;
+}
+.pager-button{
+	padding: 0 5px;
+	margin: 0 3px;
+	color: #3D3D3D;
+	background-color: #efefef;
+	cursor: pointer;
+}
+.pagination{
+	width: 50px;
+	float: right;
 }
 table.tablesorter thead tr th, table.tablesorter tfoot tr th {
 	background-color: #e6EEEE;

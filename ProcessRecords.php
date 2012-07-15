@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 $table_structure=[
 	[
 		"person",
@@ -32,12 +34,14 @@ $table	=	$table_structure[$_GET['table']][0];
 $field	=	$table_structure[$_GET['table']][1][$_GET['field']][0];
 $id		=	$_GET['id'];
 $val	=	$_GET['data']; 
-
+$errors	=	"";
 function validate($key,$validations){
+	global $errors;
 	foreach ($validations as $type) {
 		if ($type) {
 			if ($type == "req") { 
 				if ($key=="") {
+					$errors=$errors . 'Field cannot be empty. ';
 					return False;
 				}
 				else {
@@ -49,6 +53,7 @@ function validate($key,$validations){
 					return True;
 				}
 				else {
+					$errors=$errors . 'Invalid input. ';
 					return False;
 				}
 			}
@@ -60,6 +65,7 @@ function validate($key,$validations){
 					return True;
 				}
 				else {
+					$errors=$errors . 'Invalid input. ';
 					return False;
 				}
 			}
@@ -75,5 +81,22 @@ if (isset($table_structure[$_GET['table']][1][$_GET['field']][1])) {
 else{
 	$validations_passed = True;
 }
-if(isset($validations_passed)){if($validations_passed){echo 1;}else{echo 0;}}else {echo 2;}
+if ($table==""||$field==""||$id==""){
+	$errors=$errors . 'Missing information to process request. ';
+}
+if(isset($validations_passed)){
+	if($validations_passed){
+		$db = mysql_connect("localhost","root","phani");
+		mysql_select_db("test",$db);
+		$query=mysql_query("UPDATE `$table` SET `$field` = '$val' WHERE `id` =$id;");
+		if ($query) {
+			echo "Success: Value updated";
+		}
+		else{
+			$errors=$errors.'Failed to update database! :(';
+		}
+	}
+	else{}}
+else {echo "Unknown Error";}
+echo $errors;
 ?>

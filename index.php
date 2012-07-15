@@ -76,7 +76,7 @@ $(document).ready(function() {
 							<td>$getRow[0]</td>
 							<td class='edit_text'>$getRow[1]</td>
 							<td class='edit_text'>$getRow[2]</td>
-							<div id='datepicker'><td class='edit_date'>$getRow[3]</td></div>
+							<td class='edit_text' id='date'>$getRow[3]</td>
 							<td class='edit_text'>$getRow[4]</td>
 							<td class='edit_text'>$getRow[5]</td>
 							<td class='edit_text'>$getRow[6]</td>
@@ -86,6 +86,11 @@ $(document).ready(function() {
 				}
 				?>
 			</table>
+			<div class='bottom_panel'>
+				<div class='notifications'></div>
+				<div class='pagination'><span class='pager-button' id='left'><</span><span class='pager-button' id='right'>></span></div>
+			</div>			
+
 		</div>
         <div id="content_2" class="content">
 			<table class="tablesorter">
@@ -127,7 +132,12 @@ $(document).ready(function() {
 				}
 				?>
 			</table>
+			<div class='bottom_panel'>
+				<div class='notifications'></div>
+				<div class='pagination'><span class='pager-button' id='left'><</span><span class='pager-button' id='right'>></span></div>
+			</div>			
 		</div>
+
     </div>  
 </div>  
 </body> 
